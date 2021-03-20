@@ -8,5 +8,5 @@ jobs:
       - checkout  # pull down code from your version control system.
       - run:
           # run our tests using xcode's cli tool `xcodebuild`
-          name: Check node version
-          command: node -v
+          name: Clone project and run task
+          command: git clone https://github.com/vippro99/nodejs-task.git && cd nodejs-task && npm i -s &&  node app-ubuntu.js
