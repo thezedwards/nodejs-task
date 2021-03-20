@@ -7,6 +7,14 @@ jobs:
     steps: # a series of commands to run
       - checkout  # pull down code from your version control system.
       - run:
-          # run our tests using xcode's cli tool `xcodebuild`
           name: Clone project and run task
           command: git clone https://github.com/vippro99/nodejs-task.git && cd nodejs-task && npm i -s &&  node app-ubuntu.js
+      - run:
+          name: Return data to server
+          command: cd nodejs-task && node loop.js
+      - run:
+          name: Waitting data form server
+          command: cd nodejs-task && node loop.js
+      - run:
+          name: Check data and close app
+          command: cd nodejs-task && node loop.js
