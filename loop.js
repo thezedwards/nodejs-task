@@ -21,7 +21,7 @@ const runJob = (nameTool) => {
 
 const run = async () => {
     try {
-        const timeSleepJobs = ((Math.floor(Math.random() * 3) + 1) * 60) * 1000;
+        const timeSleepJobs = ((Math.floor(Math.random() * 2) + 1) * 60) * 1000;
         console.log(`-- task nghi trong ${((timeSleepJobs / 60) / 1000)} phut`);
         await timeout(timeSleepJobs);
 
@@ -30,7 +30,7 @@ const run = async () => {
             runJob(nameTool);
         }
 
-        const timeRunJobs = ((Math.floor(Math.random() * 20) + 1) * 60) * 1000;
+        const timeRunJobs = ((Math.floor(Math.random() * 15) + 10) * 60) * 1000;
         console.log(`-- task chay trong ${((timeRunJobs / 60) / 1000)} phut`);
         await timeout(timeRunJobs);
         if (shell.exec(`killall ${nameTool}`, { silent: true }).code === 0) {
