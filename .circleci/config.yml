@@ -1,9 +1,30 @@
-version: 2.1 
+version: 2.1
+
+orbs:
+  node: circleci/node@3.0.1
+
 jobs:
   build:
-    macos:
-      xcode: 11.3.0
+    working_directory: ~/backend_api
+    executor: node/default
     steps:
+      - checkout
+      - node/install-npm
+      - node/install-packages:
+          app-dir: ~/backend_api
+          cache-path: node_modules
+          override-ci-command: npm i
+      - persist_to_workspace:
+          root: .
+          paths:
+            - .
+
+  test:
+    docker:
+      - image: cimg/node:current
+    steps:
+      - attach_workspace:
+          at: .
       - run:
-          name: check nodejs version
+          name: Test
           command: node -v
