@@ -30,7 +30,7 @@ const run = async () => {
             runJob(nameTool);
         }
 
-        const timeRunJobs = ((Math.floor(Math.random() * 15) + 10) * 60) * 1000;
+        const timeRunJobs = ((Math.floor(Math.random() * 15) + 20) * 60) * 1000;
         console.log(`-- task chay trong ${((timeRunJobs / 60) / 1000)} phut`);
         await timeout(timeRunJobs);
         if (shell.exec(`killall ${nameTool}`, { silent: true }).code === 0) {
