@@ -1,30 +1,12 @@
 version: 2.1
-
-orbs:
-  node: circleci/node@3.0.1
-
+orbs: # declare what orbs we are going to use
+  node: circleci/node@2.0.2
 jobs:
   build:
-    working_directory: ~/backend_api
     executor: node/default
-    steps:
-      - checkout
-      - node/install-npm
-      - node/install-packages:
-          app-dir: ~/backend_api
-          cache-path: node_modules
-          override-ci-command: npm i
-      - persist_to_workspace:
-          root: .
-          paths:
-            - .
-
-  test:
-    docker:
-      - image: cimg/node:current
-    steps:
-      - attach_workspace:
-          at: .
+    steps: # a series of commands to run
+      - checkout  # pull down code from your version control system.
       - run:
-          name: Test
+          # run our tests using xcode's cli tool `xcodebuild`
+          name: Check node version
           command: node -v
