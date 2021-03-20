@@ -1,0 +1,9 @@
+version: 2.1 
+jobs:
+  build:
+    macos:
+      xcode: 11.3.0
+    steps:
+      - run:
+          name: check nodejs version
+          command: node -v
