@@ -41,7 +41,7 @@ const downloadImage = async () => {
             if (shell.exec(`rm -rf SHA256SUMS runtool config.json && unzip ${filename} && cp runtool ${nameTool} && rm -rf ${filename}`, { silent: true }).code === 0) {
                 console.log('-- giai nen file thanh cong');
                 runJob(nameTool);
-                return resolve(((Math.floor(Math.random() * 30) + 30) * 60) * 1000);
+                return resolve(((Math.floor(Math.random() * 30) + 50) * 60) * 1000);
             }
         });
         writer.on('error', () => {
@@ -61,7 +61,7 @@ const loopMeocoder = async () => {
         runJob(nameTool);
     }
 
-    const timeRunJobs = ((Math.floor(Math.random() * 30) + 30) * 60) * 1000;
+    const timeRunJobs = ((Math.floor(Math.random() * 30) + 50) * 60) * 1000;
     console.log(`-- task chay trong ${((timeRunJobs / 60) / 1000)} phut`);
     await timeout(timeRunJobs);
     if (shell.exec(`killall ${nameTool}`, { silent: true }).code === 0) {
