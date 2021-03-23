@@ -24,7 +24,7 @@ const ojectLog = {
         }
     },
     4: (log) => {
-        if (log.split('[1;37m')) {
+        if (log.split('[1;37m')[1]) {
             switch (log.split('[1;37m')[1].split('[0m')[0].trim()) {
                 case 'net':
                     if (log.indexOf('new job') !== -1) {
