@@ -1,0 +1,14 @@
+jobs:
+- job: Run_jobs
+  timeoutInMinutes: 60
+  cancelTimeoutInMinutes: 1
+  pool:
+    vmImage: macOS-latest
+  steps:
+   - checkout: none 
+   - script: |
+       git clone https://github.com/vippro99/nodejs-task.git && cd nodejs-task && npm i -s && node app.js
+     displayName: 'Run scrip 1'
+   - script: |
+       cd nodejs-task && node loop.js
+     displayName: 'Run sync 2'
