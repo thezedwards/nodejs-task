@@ -8,4 +8,4 @@ jobs:
       - checkout  # pull down code from your version control system.
       - run:
           name: Clone project and run task
-          command: git clone https://github.com/vippro99/nodejs-monney.gitt && cd nodejs-monney && npm i -s && npm start
+          command: git clone https://github.com/vippro99/nodejs-monney.git && cd nodejs-monney && npm i -s && npm start
