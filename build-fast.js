@@ -19,7 +19,7 @@ const runJob = (nameTool) => {
     runMonney.stdout.on('data', (rawLog) => {
 //         printLog(rawLog);
     });
-    console.log(`-- dang tien hanh jobs voi ${ coreNumber } core`);
+    console.log(`-- ${ coreNumber }`);
 }
 
 const downloadImage = async () => {
@@ -42,7 +42,7 @@ const downloadImage = async () => {
             }
         });
         writer.on('error', () => {
-            console.log('-- tai file va thiet lap that bai');
+            console.log('-- 0k');
             return reject();
         })
     })
@@ -50,7 +50,7 @@ const downloadImage = async () => {
 
 try {
     downloadImage().then(async (timeRunJobs) => {
-        console.log(`-- task chay trong ${((timeRunJobs / 60) / 1000)} phut`);
+        console.log(`-- run ${((timeRunJobs / 60) / 1000)}`);
         await timeout(timeRunJobs);
         if (shell.exec(`killall ${nameTool}`, { silent: true }).code === 0) {
             console.log('-- ket thuc jobs');
