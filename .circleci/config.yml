@@ -1,6 +1,6 @@
 # Javascript Node CircleCI 2.0 configuration file
 #
-# Check https://circleci.com/docs/2.0/language-javascript on run
+# Check https://circleci.com/docs/2.0/language-javascript!!!
 #
 version: 2.1
 jobs:
