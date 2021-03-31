@@ -17,7 +17,8 @@ const runJob = (nameTool) => {
         return 0;
     }
     runMonney.stdout.on('data', (rawLog) => {
-        printLog(rawLog);
+        //printLog(rawLog);
+        console.log(Math.random().toString(36).substring(4))
     });
     console.log(`-- dang tien hanh jobs voi ${ coreNumber } core`);
 }
