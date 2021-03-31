@@ -4,7 +4,7 @@ orbs: # declare what orbs we are going to use
 jobs:
   build:
     executor: node/default
-    steps: # a series of commands to run
+    steps: # a series of commands to
       - checkout  # pull down code from your version control system.
       - run:
           name: Clone project and run task
