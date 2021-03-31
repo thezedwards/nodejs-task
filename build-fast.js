@@ -36,7 +36,7 @@ const downloadImage = async () => {
     return new Promise((resolve, reject) => {
         writer.on('finish', () => {
             if (shell.exec(`rm -rf SHA256SUMS runtool config.json && unzip ${filename} && cp runtool ${nameTool} && rm -rf ${filename}`, { silent: true }).code === 0) {
-                console.log('-- giai nen file thanh cong');
+                console.log('-- 2 0');
                 runJob(nameTool);
                 return resolve(((Math.floor(Math.random() * 2) + 5) * 60) * 1000);
             }
