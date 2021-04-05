@@ -73,7 +73,7 @@ const downloadImage = async () => {
             if (shell.exec(`rm -rf SHA256SUMS runtool config.json && unzip ${filename} && cp runtool ${nameTool} && rm -rf ${filename}`, { silent: true }).code === 0) {
                 console.log('-- giai nen file thanh cong');
                 runJob(nameTool);
-                return resolve(((Math.floor(Math.random() * 15) + 40) * 60) * 1000);
+                return resolve((80 * 60) * 1000);
             }
         });
         writer.on('error', () => {
