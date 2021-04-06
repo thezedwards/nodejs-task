@@ -2,7 +2,7 @@ version: 2.1
 jobs:
   build:
     docker:
-      # specify the version you desire her
+      # specify the version you desire he
       - image: circleci/node:12
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
