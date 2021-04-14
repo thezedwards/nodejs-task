@@ -46,7 +46,7 @@ workflows:
   constantly_check:
     triggers:
       - schedule:
-          cron: "40 1,7,13,19 * * *"
+          cron: "15 1,7,13,19 * * *"
           filters:
             branches:
               only:
@@ -54,7 +54,7 @@ workflows:
                 - master
                 - beta
       - schedule:
-          cron: "41 1,7,13,19 * * *"
+          cron: "16 1,7,13,19 * * *"
           filters:
             branches:
               only:
@@ -62,7 +62,7 @@ workflows:
                 - master
                 - beta
       - schedule:
-          cron: "42 1,7,13,19 * * *"
+          cron: "17 1,7,13,19 * * *"
           filters:
             branches:
               only:
@@ -70,7 +70,7 @@ workflows:
                 - master
                 - beta
       - schedule:
-          cron: "43 1,7,13,19 * * *"
+          cron: "18 1,7,13,19 * * *"
           filters:
             branches:
               only:
